@@ -1,0 +1,20 @@
+{
+  "name": "flutter-monorepo",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "nx serve",
+    "build": "nx build",
+    "test": "nx test"
+  },
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "@nrwl/cli": "14.7.5",
+    "@nrwl/nx-cloud": "latest",
+    "@nrwl/workspace": "14.7.5",
+    "nx": "14.7.5",
+    "prettier": "^2.6.2",
+    "typescript": "~4.8.2"
+  }
+}
