@@ -7,8 +7,4 @@ class HomeViewModel extends Cubit<HomeViewState> {
   HomeViewModel() : super(const HomeViewState());
 
   void increment() => emit(state.copy(count: state.count + 1));
-
-  void test() {
-
-  }
 }
