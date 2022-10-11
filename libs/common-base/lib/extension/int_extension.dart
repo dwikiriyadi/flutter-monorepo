@@ -22,6 +22,8 @@ extension DateTimeParser on int {
     }
   }
 
+  String withZero() => "$this".length == 1 ? "0$this" : "$this";
+
   String toTimer() {
     var date = DateTime.fromMillisecondsSinceEpoch(this * 1000);
     var format = DateFormat('mm:ss');

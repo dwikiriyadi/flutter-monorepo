@@ -1,5 +1,5 @@
 class Environment {
-  static isProduction() => const bool.fromEnvironment('dart.vm.product');
+  static bool isProduction() => const bool.fromEnvironment('dart.vm.product');
 
-  static isDevelopment() => !const bool.fromEnvironment('dart.vm.product');
+  static bool isDevelopment() => !const bool.fromEnvironment('dart.vm.product');
 }

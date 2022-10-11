@@ -22,6 +22,7 @@ dependencies:
   intl: ^0.17.0
   connectivity_plus: ^2.3.7
   internet_connection_checker: ^0.0.1+4
+  encrypt: ^5.0.1
 
 dev_dependencies:
   flutter_test:
