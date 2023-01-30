@@ -1,5 +1,5 @@
+import 'package:common_base/object/result_state.dart';
 import 'package:flutter/material.dart';
-import 'package:simtaru/core/commons/object/result_state.dart';
 
 class ListContent<T> extends StatefulWidget {
   final ResultState<List<T>> result;

@@ -1,6 +1,6 @@
+import 'package:common_base/network/exception/network_connection_error.dart';
+import 'package:common_base/network/network_checker.dart';
 import 'package:dio/dio.dart';
-import 'package:simtaru/core/commons/network/exception/network_connection_error.dart';
-import 'package:simtaru/core/commons/network/network_checker.dart';
 
 class NetworkCheckInterceptor extends Interceptor {
   @override

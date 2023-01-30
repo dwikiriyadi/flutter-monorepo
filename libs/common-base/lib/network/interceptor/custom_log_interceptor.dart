@@ -1,6 +1,6 @@
+import 'package:common_base/utils/environment.dart';
 import 'package:flutter_loggy_dio/flutter_loggy_dio.dart';
 import 'package:loggy/loggy.dart';
-import 'package:simtaru/core/commons/utils/environment.dart';
 
 class CustomLogInterceptor {
   static LoggyDioInterceptor? call({

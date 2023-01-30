@@ -1,5 +1,5 @@
+import 'package:common_base/static/status_code.dart';
 import 'package:dio/dio.dart';
-import 'package:simtaru/core/commons/static/status_code.dart';
 
 class NetworkConnectionError extends DioError {
   NetworkConnectionError({required super.requestOptions})
