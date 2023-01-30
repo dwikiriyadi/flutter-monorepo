@@ -21,7 +21,7 @@ dependencies:
   permission_handler: ^10.0.0
   intl: ^0.17.0
   connectivity_plus: ^2.3.7
-  internet_connection_checker: ^0.0.1+4
+  internet_connection_checker: ^1.0.0+1
   encrypt: ^5.0.1
 
 dev_dependencies:
