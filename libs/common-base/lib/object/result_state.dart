@@ -26,6 +26,12 @@ class SuccessState<T> extends ResultState<T> {
 }
 
 class ErrorState<T> extends ResultState<T> {
-  const ErrorState({required int code, required String message, T? previous})
+  final int statusCode;
+
+  const ErrorState(
+      {required int code,
+      required this.statusCode,
+      required String message,
+      T? previous})
       : super(code: code, message: message, data: previous);
 }

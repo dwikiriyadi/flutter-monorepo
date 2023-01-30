@@ -6,6 +6,7 @@ class ViewModelProvider<B extends BlocBase<S>, S extends Equatable>
     extends StatefulWidget {
   final B viewModel;
   final Function(B bloc)? onModelReady;
+  final bool consumeOnly;
   final Function(BuildContext context, B bloc, S state)? listener;
   final Widget Function(BuildContext context, B bloc, S state) builder;
 
@@ -14,7 +15,8 @@ class ViewModelProvider<B extends BlocBase<S>, S extends Equatable>
       required this.viewModel,
       this.onModelReady,
       this.listener,
-      required this.builder})
+      required this.builder,
+      this.consumeOnly = false})
       : super(key: key);
 
   @override
@@ -34,8 +36,20 @@ class _ViewModelProviderState<B extends BlocBase<S>, S extends Equatable>
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => widget.viewModel,
+    if (widget.consumeOnly) {
+      return BlocConsumer<B, S>(
+        listener: (context, state) {
+          if (widget.listener != null) {
+            widget.listener!(context, widget.viewModel, state);
+          }
+        },
+        builder: (context, state) =>
+            widget.builder(context, widget.viewModel, state),
+      );
+    }
+
+    return BlocProvider.value(
+      value: widget.viewModel,
       child: BlocConsumer<B, S>(
         listener: (context, state) {
           if (widget.listener != null) {
