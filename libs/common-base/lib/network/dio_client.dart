@@ -11,6 +11,11 @@ class DioClient {
     ));
   }
 
+  DioClient config(Function(Dio client) configuration) {
+    configuration(client);
+    return this;
+  }
+
   DioClient addInterceptor(Interceptor? element) {
     if (element != null) client.interceptors.add(element);
     return this;
