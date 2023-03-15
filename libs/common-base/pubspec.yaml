@@ -1,5 +1,6 @@
 name: common_base
 description: A Common Library
+publish_to: none
 version: 0.0.1
 homepage:
 
