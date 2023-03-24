@@ -26,7 +26,7 @@ class SuccessState<T> extends ResultState<T> {
 }
 
 class ErrorState<T> extends ResultState<T> {
-  final int statusCode;
+  final String statusCode;
 
   const ErrorState(
       {required int code,
