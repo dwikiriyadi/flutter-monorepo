@@ -6,6 +6,7 @@ class ViewModelProvider<B extends BlocBase<S>, S extends Equatable>
     extends StatefulWidget {
   final B viewModel;
   final Function(B bloc)? onModelReady;
+  final Function(B bloc)? onChangeDependencies;
   final bool consumeOnly;
   final Function(BuildContext context, B bloc, S state)? listener;
   final Widget Function(BuildContext context, B bloc, S state) builder;
@@ -13,6 +14,7 @@ class ViewModelProvider<B extends BlocBase<S>, S extends Equatable>
   const ViewModelProvider(
       {Key? key,
       required this.viewModel,
+      this.onChangeDependencies,
       this.onModelReady,
       this.listener,
       required this.builder,
@@ -32,6 +34,14 @@ class _ViewModelProviderState<B extends BlocBase<S>, S extends Equatable>
       widget.onModelReady!(widget.viewModel);
     }
     super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    if (widget.onChangeDependencies != null) {
+      widget.onChangeDependencies!(widget.viewModel);
+    }
+    super.didChangeDependencies();
   }
 
   @override
