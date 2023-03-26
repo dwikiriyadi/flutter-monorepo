@@ -1,3 +1,4 @@
+import 'package:common_base/extension/result_state_extension.dart';
 import 'package:common_base/object/result_state.dart';
 import 'package:flutter/material.dart';
 
@@ -32,7 +33,7 @@ class _ListContentState extends State<ListContent> {
     return RefreshIndicator(
       key: widget.key,
       onRefresh: widget.onRefresh,
-      child: (widget.result is SuccessState &&
+      child: (widget.result.isSuccess() &&
               widget.result.data == null &&
               widget.emptyPage != null)
           ? SingleChildScrollView(
@@ -64,11 +65,11 @@ class _ListContentState extends State<ListContent> {
   }
 
   int _getItemCount() {
-    if (widget.result is LoadingState && widget.result.data == null) {
+    if (widget.result.isLoading() && widget.result.data == null) {
       return 10;
     }
 
-    if (widget.result is LoadingState && widget.result.data!.isNotEmpty) {
+    if (widget.result.isLoading() && widget.result.data!.isNotEmpty) {
       return widget.result.data!.length + 10;
     }
 
