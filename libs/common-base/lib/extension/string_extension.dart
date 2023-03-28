@@ -4,7 +4,7 @@ import 'dart:typed_data';
 import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
-extension Date on String {
+extension DateExtension on String {
   String toddMMMyyyy() {
     initializeDateFormatting();
     return DateFormat("dd MMM yyyy", "id_ID")
@@ -24,7 +24,7 @@ extension Date on String {
   }
 }
 
-extension Image on String {
+extension ImageExtension on String {
   Uint8List readImage() {
     return base64Decode(this);
   }
