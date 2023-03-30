@@ -22,6 +22,7 @@ class IdleState<T> extends ResultState<T> {
 
 class SuccessState<T> extends ResultState<T> {
   @override
+  // ignore: overridden_fields
   final T data;
 
   const SuccessState({required this.data})
