@@ -9,6 +9,7 @@ class ViewModelProvider<B extends BlocBase<S>, S extends Equatable>
   final Function(B bloc)? onChangeDependencies;
   final bool consumeOnly;
   final Function(BuildContext context, B bloc, S state)? listener;
+  final BlocListenerCondition<S>? listenWhen;
   final Widget Function(BuildContext context, B bloc, S state) builder;
 
   const ViewModelProvider(
@@ -18,7 +19,8 @@ class ViewModelProvider<B extends BlocBase<S>, S extends Equatable>
       this.onModelReady,
       this.listener,
       required this.builder,
-      this.consumeOnly = false})
+      this.consumeOnly = false,
+      this.listenWhen})
       : super(key: key);
 
   @override
@@ -61,9 +63,7 @@ class _ViewModelProviderState<B extends BlocBase<S>, S extends Equatable>
     return BlocProvider.value(
       value: widget.viewModel,
       child: BlocConsumer<B, S>(
-        listenWhen: (previous, current) {
-          return previous.hashCode == current.hashCode ? false : true;
-        },
+        listenWhen: widget.listenWhen,
         listener: (context, state) {
           if (widget.listener != null) {
             widget.listener!(context, widget.viewModel, state);
