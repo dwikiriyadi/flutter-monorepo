@@ -61,6 +61,9 @@ class _ViewModelProviderState<B extends BlocBase<S>, S extends Equatable>
     return BlocProvider.value(
       value: widget.viewModel,
       child: BlocConsumer<B, S>(
+        listenWhen: (previous, current) {
+          return previous.hashCode == current.hashCode ? false : true;
+        },
         listener: (context, state) {
           if (widget.listener != null) {
             widget.listener!(context, widget.viewModel, state);
