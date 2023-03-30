@@ -1,37 +1,52 @@
 import 'package:equatable/equatable.dart';
 
 class ResultState<T> extends Equatable {
-  final int code;
-  final String message;
-  final T? data;
-
-  const ResultState({required this.code, required this.message, this.data});
+  const ResultState();
 
   @override
-  List<Object?> get props => [code, message, data];
+  List<Object?> get props => [];
 }
 
 class LoadingState<T> extends ResultState<T> {
-  const LoadingState({T? previous})
-      : super(code: 0, message: "", data: previous);
+  final T? previous;
+
+  const LoadingState({this.previous}) : super();
+
+  @override
+  List<Object?> get props => [previous];
 }
 
 class IdleState<T> extends ResultState<T> {
-  const IdleState({T? previous}) : super(code: 0, message: "", data: previous);
+  final T? previous;
+
+  const IdleState({this.previous}) : super();
+
+  @override
+  List<Object?> get props => [previous];
 }
 
 class SuccessState<T> extends ResultState<T> {
-  const SuccessState({required T data})
-      : super(code: 200, message: "", data: data);
+  final T data;
+
+  const SuccessState({required this.data}) : super();
+
+  @override
+  List<Object?> get props => [data];
 }
 
 class ErrorState<T> extends ResultState<T> {
+  final int code;
   final String statusCode;
+  final String message;
+  final T? previous;
 
   const ErrorState(
-      {required int code,
+      {required this.code,
       required this.statusCode,
-      required String message,
-      T? previous})
-      : super(code: code, message: message, data: previous);
+      required this.message,
+      this.previous})
+      : super();
+
+  @override
+  List<Object?> get props => [code, statusCode, message, previous];
 }
