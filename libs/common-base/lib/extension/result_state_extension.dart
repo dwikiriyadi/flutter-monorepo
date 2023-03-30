@@ -1,11 +1,13 @@
 import 'package:common_base/object/result_state.dart';
 
 extension ResultStateChecking on ResultState {
-  bool isLoading() => this is LoadingState;
+  bool get isLoading => this is LoadingState;
 
-  bool isSuccess() => this is SuccessState;
+  bool get isSuccess => this is SuccessState;
 
-  bool isError() => this is ErrorState;
+  bool get isError => this is ErrorState;
 
-  bool isIdle() => this is IdleState;
+  bool get isIdle => this is IdleState;
+
+  SuccessState get success => this as SuccessState;
 }

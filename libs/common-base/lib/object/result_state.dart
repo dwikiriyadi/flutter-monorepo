@@ -21,7 +21,10 @@ class IdleState<T> extends ResultState<T> {
 }
 
 class SuccessState<T> extends ResultState<T> {
-  const SuccessState({required T data})
+  @override
+  final T data;
+
+  const SuccessState({required this.data})
       : super(code: 200, message: "", data: data);
 }
 
