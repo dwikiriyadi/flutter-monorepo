@@ -24,7 +24,7 @@ class ListContent<T> extends StatefulWidget {
       required this.separatorBuilder});
 
   @override
-  State<StatefulWidget> createState() => _ListContentState();
+  State<StatefulWidget> createState() => _ListContentState<T>();
 }
 
 class _ListContentState<T> extends State<ListContent<T>> {
