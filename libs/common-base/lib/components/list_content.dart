@@ -27,7 +27,7 @@ class ListContent<T> extends StatefulWidget {
   State<StatefulWidget> createState() => _ListContentState();
 }
 
-class _ListContentState extends State<ListContent> {
+class _ListContentState<T> extends State<ListContent<T>> {
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(
