@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 
 class ResponseErrorInterceptor extends Interceptor {
-  final DioError Function(Response response) callback;
+  final DioException Function(Response response) callback;
 
   ResponseErrorInterceptor(this.callback);
 

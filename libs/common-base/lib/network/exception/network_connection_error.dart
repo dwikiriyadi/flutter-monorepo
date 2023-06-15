@@ -1,7 +1,7 @@
 import 'package:common_base/static/status_code.dart';
 import 'package:dio/dio.dart';
 
-class NetworkConnectionError extends DioError {
+class NetworkConnectionError extends DioException {
   NetworkConnectionError({required super.requestOptions})
       : super(
             error: "No Internet Connection",
