@@ -11,9 +11,11 @@ class ListContent<T> extends StatefulWidget {
   final EdgeInsetsGeometry? padding;
   final RefreshCallback onRefresh;
   final ScrollController? scrollController;
+  final Key? refreshIndicatorKey;
 
   const ListContent(
       {super.key,
+      this.refreshIndicatorKey,
       required this.result,
       required this.itemBuilder,
       required this.shimmerBuilder,
@@ -31,7 +33,7 @@ class _ListContentState<T> extends State<ListContent<T>> {
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(
-      key: widget.key,
+      key: widget.refreshIndicatorKey,
       onRefresh: widget.onRefresh,
       child: (widget.result.isSuccess &&
               widget.result.data == null &&
