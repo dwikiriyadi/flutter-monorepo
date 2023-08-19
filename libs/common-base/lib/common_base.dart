@@ -13,6 +13,8 @@ export './network/exception/network_connection_error.dart';
 export './network/interceptor/custom_log_interceptor.dart';
 export './network/interceptor/network_check_interceptor.dart';
 export './network/interceptor/response_error_interceptor.dart';
+export './network/bloc/network_queue_listener.dart';
+export './network/bloc/network_queue_view_model.dart';
 export './network/dio_client.dart';
 export './network/network_checker.dart';
 
