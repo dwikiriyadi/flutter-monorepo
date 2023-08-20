@@ -5,6 +5,13 @@ import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 extension DateExtension on String {
+  String convertDateTime(
+      {String srcPattern = "yyyy-MM-dd", String dstPattern = "dd MMM yyyy"}) {
+    initializeDateFormatting();
+    return DateFormat(dstPattern, "id_ID")
+        .format(DateFormat(srcPattern).parse(this));
+  }
+
   String toddMMMyyyy() {
     initializeDateFormatting();
     return DateFormat("dd MMM yyyy", "id_ID")
