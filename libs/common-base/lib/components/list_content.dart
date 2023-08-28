@@ -1,3 +1,4 @@
+import 'package:common_base/extension/nullable_list_extension.dart';
 import 'package:common_base/extension/result_state_extension.dart';
 import 'package:common_base/object/result_state.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +37,7 @@ class _ListContentState<T> extends State<ListContent<T>> {
       key: widget.refreshIndicatorKey,
       onRefresh: widget.onRefresh,
       child: ((widget.result.isSuccess || widget.result.isIdle) &&
-              widget.result.data == null &&
+              widget.result.data.isNullOrEmpty &&
               widget.emptyPage != null)
           ? SingleChildScrollView(
               physics: const AlwaysScrollableScrollPhysics(),
