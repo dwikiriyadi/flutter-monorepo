@@ -35,9 +35,7 @@ class _ListContentState<T> extends State<ListContent<T>> {
     return RefreshIndicator(
       key: widget.refreshIndicatorKey,
       onRefresh: widget.onRefresh,
-      child: (widget.result.isSuccess &&
-              widget.result.data == null &&
-              widget.emptyPage != null)
+      child: (widget.result.data == null && widget.emptyPage != null)
           ? SingleChildScrollView(
               physics: const AlwaysScrollableScrollPhysics(),
               child: SizedBox(
