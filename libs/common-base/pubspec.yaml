@@ -25,6 +25,8 @@ dependencies:
   internet_connection_checker: ^1.0.0+1
   encrypt: ^5.0.1
   firebase_messaging: ^14.2.6
+  flutter_hooks: ^0.20.2
+  flutter_map: ^5.0.0
 
 dev_dependencies:
   flutter_test:
