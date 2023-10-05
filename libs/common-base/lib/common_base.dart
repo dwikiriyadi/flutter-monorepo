@@ -23,6 +23,7 @@ export './object/result_state.dart';
 export './static/status_code.dart';
 
 export './storage/hive_encryption.dart';
+export './storage/preferences.dart';
 
 export './utils/encryption.dart';
 export './utils/environment.dart';
