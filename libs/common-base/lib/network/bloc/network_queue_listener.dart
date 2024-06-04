@@ -1,5 +1,4 @@
 import 'package:common_base/common_base.dart';
-import 'package:common_base/network/bloc/network_queue_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,8 +10,7 @@ class NetworkQueueListener extends StatelessWidget {
   final NetworkQueueListenerBuilder listener;
 
   const NetworkQueueListener(
-      {Key? key, required this.child, required this.listener})
-      : super(key: key);
+      {super.key, required this.child, required this.listener});
 
   @override
   Widget build(BuildContext context) {

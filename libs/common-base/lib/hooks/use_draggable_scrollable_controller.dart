@@ -13,8 +13,8 @@ class _DraggableScrollableControllerHook
     extends Hook<DraggableScrollableController> {
   const _DraggableScrollableControllerHook({
     this.listener,
-    List<Object?>? keys,
-  }) : super(keys: keys);
+    super.keys,
+  });
 
   final Function(DraggableScrollableController controller)? listener;
 

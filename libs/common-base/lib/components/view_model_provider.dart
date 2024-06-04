@@ -13,15 +13,14 @@ class ViewModelProvider<B extends BlocBase<S>, S extends Equatable>
   final Widget Function(BuildContext context, B bloc, S state) builder;
 
   const ViewModelProvider(
-      {Key? key,
+      {super.key,
       required this.viewModel,
       this.onChangeDependencies,
       this.onModelReady,
       this.listener,
       required this.builder,
       this.consumeOnly = false,
-      this.listenWhen})
-      : super(key: key);
+      this.listenWhen});
 
   @override
   State<ViewModelProvider<B, S>> createState() =>

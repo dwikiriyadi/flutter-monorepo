@@ -33,9 +33,9 @@ class ErrorState<T> extends ResultState<T> {
   final String statusCode;
 
   const ErrorState(
-      {required int code,
+      {required super.code,
       required this.statusCode,
-      required String message,
+      required super.message,
       T? previous})
-      : super(code: code, message: message, data: previous);
+      : super(data: previous);
 }

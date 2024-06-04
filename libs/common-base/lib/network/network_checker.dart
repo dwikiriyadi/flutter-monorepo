@@ -5,11 +5,10 @@ class NetworkChecker {
   static Future<bool> isConnected() async {
     var connectivityResult = await Connectivity().checkConnectivity();
 
-    switch (connectivityResult) {
-      case ConnectivityResult.none:
-        return false;
-      default:
-        return await InternetConnectionChecker().hasConnection;
+    if (connectivityResult.contains(ConnectivityResult.none)) {
+      return false;
     }
+
+    return await InternetConnectionChecker().hasConnection;
   }
 }

@@ -10,9 +10,9 @@ class CustomLogInterceptor {
     bool responseBody = true,
     bool error = true,
     int maxWidth = 90,
-    LogLevel requestLevel = LogLevel.all,
-    LogLevel? responseLevel,
-    LogLevel? errorLevel,
+    LogLevel requestLevel = LogLevel.info,
+    LogLevel responseLevel = LogLevel.info,
+    LogLevel errorLevel = LogLevel.error,
   }) {
     if (Environment.isDevelopment()) {
       return LoggyDioInterceptor(
