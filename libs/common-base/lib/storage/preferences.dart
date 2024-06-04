@@ -6,8 +6,12 @@ class Preferences {
 
   Preferences();
 
-  Future<void> create(String prefName, String secureKey) async {
+  Future<void> createSecure(String prefName, String secureKey) async {
     var key = await HiveEncryption.encryptionKey(secureKey);
     box = await Hive.openBox(prefName, encryptionCipher: HiveAesCipher(key));
+  }
+
+  Future<void> create(String prefName) async {
+    box = await Hive.openBox(prefName);
   }
 }
