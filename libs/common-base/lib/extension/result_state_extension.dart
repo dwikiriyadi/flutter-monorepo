@@ -10,4 +10,6 @@ extension ResultStateChecking on ResultState {
   bool get isIdle => this is IdleState;
 
   SuccessState get success => this as SuccessState;
+
+  bool get stable => isIdle && data != null;
 }
