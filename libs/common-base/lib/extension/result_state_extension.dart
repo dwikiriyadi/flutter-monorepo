@@ -11,5 +11,5 @@ extension ResultStateChecking on ResultState {
 
   SuccessState get success => this as SuccessState;
 
-  bool get stable => (isSuccess) || (isIdle && data != null);
+  bool get stable => (isIdle && data != null);
 }
