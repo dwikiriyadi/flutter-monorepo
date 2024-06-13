@@ -25,6 +25,7 @@ export './static/status_code.dart';
 export './storage/hive_encryption.dart';
 export './storage/preferences.dart';
 
+export './utils/debounce.dart';
 export './utils/encryption.dart';
 export './utils/environment.dart';
 export './utils/permission_checker.dart';
