@@ -33,19 +33,21 @@ class ListContent<T> extends StatefulWidget {
 class _ListContentState<T> extends State<ListContent<T>> {
   @override
   Widget build(BuildContext context) {
-    return RefreshIndicator(
+    return LayoutBuilder(builder: (context, constraints) => RefreshIndicator(
       key: widget.refreshIndicatorKey,
       onRefresh: widget.onRefresh,
       child: ((widget.result.isSuccess || widget.result.isIdle) &&
-              widget.result.data.isNullOrEmpty &&
-              widget.emptyPage != null)
+          widget.result.data.isNullOrEmpty &&
+          widget.emptyPage != null)
           ? SingleChildScrollView(
-              physics: const AlwaysScrollableScrollPhysics(),
-              child: SizedBox(
-                height: MediaQuery.of(context).size.height,
-                child: widget.emptyPage!,
-              ),
-            )
+        physics: const AlwaysScrollableScrollPhysics(),
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            minHeight: constraints.maxHeight
+          ),
+          child: widget.emptyPage!,
+        ),
+      )
           : Scrollbar(child: PageStorage(
         bucket: PageStorageBucket(),
         child: ListView.separated(
@@ -68,7 +70,7 @@ class _ListContentState<T> extends State<ListContent<T>> {
           itemCount: _getItemCount(),
         ),
       )),
-    );
+    ));
   }
 
   int _getItemCount() {
