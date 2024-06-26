@@ -46,24 +46,28 @@ class _ListContentState<T> extends State<ListContent<T>> {
                 child: widget.emptyPage!,
               ),
             )
-          : ListView.separated(
-              padding: widget.padding,
-              controller: widget.scrollController,
-              itemBuilder: (BuildContext context, int index) {
-                if (widget.result.data != null &&
-                    widget.result.data!.isNotEmpty) {
-                  if (index >= widget.result.data!.length) {
-                    return widget.shimmerBuilder(context);
-                  }
-                  return widget.itemBuilder(
-                      context, widget.result.data![index], index);
-                } else {
-                  return widget.shimmerBuilder(context);
-                }
-              },
-              separatorBuilder: widget.separatorBuilder,
-              itemCount: _getItemCount(),
-            ),
+          : Scrollbar(child: PageStorage(
+        bucket: PageStorageBucket(),
+        child: ListView.separated(
+          key: PageStorageKey((widget.result.data?.length ?? 0).runtimeType.toString()),
+          padding: widget.padding,
+          controller: widget.scrollController,
+          itemBuilder: (BuildContext context, int index) {
+            if (widget.result.data != null &&
+                widget.result.data!.isNotEmpty) {
+              if (index >= widget.result.data!.length) {
+                return widget.shimmerBuilder(context);
+              }
+              return widget.itemBuilder(
+                  context, widget.result.data![index], index);
+            } else {
+              return widget.shimmerBuilder(context);
+            }
+          },
+          separatorBuilder: widget.separatorBuilder,
+          itemCount: _getItemCount(),
+        ),
+      )),
     );
   }
 
