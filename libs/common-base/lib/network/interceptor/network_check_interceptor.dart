@@ -1,4 +1,4 @@
-import 'package:common_base/network/exception/network_connection_error.dart';
+import 'package:common_base/exception/network_connection_error.dart';
 import 'package:common_base/network/network_checker.dart';
 import 'package:dio/dio.dart';
 
